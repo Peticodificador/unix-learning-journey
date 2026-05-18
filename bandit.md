@@ -52,3 +52,24 @@ file ./* # Analiza todos los archivos del directorio
 # Una vez identificado el archivo de texto ASCII (en este caso el 07):
 less ./-file07
 ```
+
+## Nivel 5 a Nivel 6
+**Objetivo** Identificar un archivo que cumpla los siguientes requisitos: no ejecutable, estar en ascii y pesar 1033 bytes.
+El comando `find` te permite buscar dentro de todos los archivos del sistema (o mas limitado en caso de ser necesario).
+
+Puedo filtrar por tamaño con -size, por tipo de archivo con -type f, primero pense en buscar los permisos con el codigo hexa pero luego encontre el ! -executable
+Con file puedo saber si es ASCII o solo datos. 
+
+Para usar ambos se me ocurrio usar un pipe pero habria un problema con lo que file toma como argumento, puedo usar el comando `xargs` para volcarlo como argumento o `$()` para correr con prioridad los comandos.
+
+```bash
+file $(find . -type f -size 1033c ! -executable) # Busca entre todos los archivos del directorio y los filtra
+less archivo_filtrado
+```
+
+O la otra alternativa:
+
+```bash
+find . -type f -size 1033c ! -executable | xargs file
+less archivo_filtrado
+```
