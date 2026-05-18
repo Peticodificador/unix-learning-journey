@@ -54,7 +54,7 @@ less ./-file07
 ```
 
 ## Nivel 5 a Nivel 6
-**Objetivo** Identificar un archivo que cumpla los siguientes requisitos: no ejecutable, estar en ascii y pesar 1033 bytes.
+**Objetivo:** Identificar un archivo que cumpla los siguientes requisitos: no ejecutable, estar en ascii y pesar 1033 bytes.
 El comando `find` te permite buscar dentro de todos los archivos del sistema (o mas limitado en caso de ser necesario).
 
 Puedo filtrar por tamaño con `-size`, por tipo de archivo con -type f, primero pense en buscar los permisos con el codigo hexa pero luego encontre el `! -executable`
@@ -76,7 +76,7 @@ less archivo_filtrado
 
 ## Nivel 6 a Nivel 7
 
-**Objetivo** Identificar un archivo que cumpla las siguientes condiciones: sea del usuario bandit7, del grupo bandit 6 y pese 33 bytes.
+**Objetivo:** Identificar un archivo que cumpla las siguientes condiciones: sea del usuario bandit7, del grupo bandit 6 y pese 33 bytes.
 
 Al igual que el punto anterior el protagonista es `find`. Sin embargo, al correr la siguiente linea:
 
@@ -91,5 +91,14 @@ find / -user bandit7 -group bandit6 -size 33c 2>/dev/null
 less archivo_filtrado
 ```
 
-**1 = Standar Output:** salida exitosa, lo que quiero ver.
-**2 = Standar Error:** mensajes de error que quiero ignorar (en este caso) `>/dev/null`
+**1 = Standard Output:** salida exitosa, lo que quiero ver.
+**2 = Standard Error:** mensajes de error que quiero ignorar (en este caso) `>/dev/null`
+
+## Nivel 7 a Nivel 8
+**Objetivo:** Buscar la línea correcta dentro de un archivo grande.
+
+El comando `grep` es ideal para buscar palabras determinadas dentro de un archivo. `grep [lo que busco] [donde lo busco]`
+
+```bash
+grep millionth data.txt
+```
