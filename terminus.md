@@ -2,7 +2,9 @@
 
 Este documento registra mi introducción a la línea de comandos (CLI) a través del juego **Terminus**. 
 
-Utilicé este juego como punto de partida para familiarizarme con el entorno de texto, la navegación básica de directorios y la interacción con el sistema operativo sin una interfaz gráfica. Fue una excelente base para luego avanzar a retos más complejos como OverTheWire: Bandit.
+Use este juego para recordar el entorno de texto, la navegación básica de directorios y la interacción con el sistema operativo sin una interfaz gráfica. Fue una buena preparación para pasar a algo más complejo como OverTheWire: Bandit.
+
+Dada la naturaleza del juego que te lleva a avanzar y retroceder varias veces no dejo registro de los comandos utilizados porque seria casi imposible.
 
 **Conceptos clave aprendidos:**
 * Navegación básica en la terminal.
