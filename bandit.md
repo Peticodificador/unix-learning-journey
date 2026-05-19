@@ -90,9 +90,9 @@ La terminal te imprime tambien los permisos denegados perdiendo de vista el arch
 find / -user bandit7 -group bandit6 -size 33c 2>/dev/null
 less archivo_filtrado
 ```
-
-**1 = Standard Output:** salida exitosa, lo que quiero ver.
-**2 = Standard Error:** mensajes de error que quiero ignorar (en este caso) `>/dev/null`
+**0 = Standard Input:** lo que le damos como entrada.  
+**1 = Standard Output:** salida exitosa, lo que quiero ver.  
+**2 = Standard Error:** mensajes de error que quiero ignorar (en este caso) `>/dev/null`.
 
 ## Nivel 7 a Nivel 8
 **Objetivo:** Buscar la línea correcta dentro de un archivo grande.
@@ -101,4 +101,21 @@ El comando `grep` es ideal para buscar palabras determinadas dentro de un archiv
 
 ```bash
 grep millionth data.txt
+```
+
+## Nivel 8 a Nivel 9
+**Objetivo:** buscar la unica linea que no se repite en un archivo.
+
+El comando `uniq` es la clave para resolver este desafio. Sin embargo solo funciona con listas ordenadas, para eso debe combinarse con `sort` y unirlos con un pipe `|`.
+
+Mi primer intento fue utilizar la opcion `uniq -c` para contar la frecuencia de aparición de cada linea y filtrarlo con `grep`. Notar el doble espacio para filtrar las lineas que se repiten 10 u 11 veces, asi como los digitos dentro de la linea.
+
+```bash
+sort data.txt | uniq -c | grep " 1 "
+```
+
+Sin embargo, existe `uniq -u` que imprime unicamente las lineas unicas.
+
+```bash
+sort data.txt | uniq -u
 ```
