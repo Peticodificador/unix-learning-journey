@@ -129,3 +129,11 @@ El comando `strings` te permite filtrar los segmentos del archivo que se encuent
 strings data.txt | grep -E "=+"
 ```
 
+## Nivel 10 a Nivel 11
+**Objetivo:** decodificar la contraseña de un archivo en base64.
+
+El comando `base64` generalmente se utiliza para codificar pero con su opción `-d` nos permite hacer lo contrario.
+
+```bash
+base64 -d data.txt
+```
