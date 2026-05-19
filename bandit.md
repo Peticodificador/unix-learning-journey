@@ -119,3 +119,13 @@ Sin embargo, existe `uniq -u` que imprime unicamente las lineas unicas.
 ```bash
 sort data.txt | uniq -u
 ```
+
+## Nivel 9 a Nivel 10
+**Objetivo:** encontrar la contraseña en un archivo que contiene texto leíble y binario, la contraseña es precedida por varios `=`.
+
+El comando `strings` te permite filtrar los segmentos del archivo que se encuentren en ASCII. Esto, combinado con `grep` y RegEx permite la resolución del ejercicio. Sin embargo, para que `grep`utilice un motor RegEx moderno hay que usar la opción `-E`.
+
+```bash
+strings data.txt | grep -E "=+"
+```
+
