@@ -139,7 +139,7 @@ base64 -d data.txt
 ```
 
 ## Nivel 11 a Nivel 12
-**Objetivo:** decodificar la contraseña de un archivo con root13
+**Objetivo:** decodificar la contraseña de un archivo con root13.
 
 El comando `tr` te permite reemplazar, filtrar y borrar caracteres con variedad de opciones. Si aplicamos root13 de forma manual podemos pasarle que letras corresponden. Siempre se usa con un pipe.
 
@@ -147,4 +147,44 @@ El comando `tr` te permite reemplazar, filtrar y borrar caracteres con variedad 
 cat data.txt | tr "A-Z""a-z" "N-ZA-M""n-za-m"
 ```
 
-Notese que hay que cambiar las mayusculas y las minusculas. Los números se dejan igual.
+Nótese que hay que cambiar las mayúsculas y las minúsculas. Los números se dejan igual.
+
+## Nivel 12 a Nivel 13
+**Objetivo:** buscar la contraseña en un hexdump comprimido luego de haberlo copiado en un directorio temporal.
+
+Para crear el directorio temporal utilizo `mktemp -d` (al usarlo te crea una secuencia aleatoria al final, en mi caso la limite a tres caracteres). Luego, copio el archivo y lo descomprimo
+
+```bash
+mktemp -d /tmp/ornitorrincovolador_XXX
+cp data.txt /tmp/ornitorrincovolador_YA2
+cd /tmp/ornitorrincovolador_YA2
+```
+
+Al tratar de descomprimir en este punto saltaría un error al ser todavía hexdump, para eso se revierte con el comando `xxd` y se usa `file` para corroborar que sea un comprimido
+
+```bash
+xxd -rp data.txt > archivobin
+file archivobin
+```
+
+Luego del file se vera que tipo de comprimido tiene y en función de eso se siguen 3 caminos (que se repiten hasta que el file sea ASCII):
+
+``` bash
+mv archivobin archivobin.gz
+gzip -d archivobin.gz
+file archivobin
+```
+
+```bash
+mv archivobin archivobin.bz2
+bzip2 -d archivobin.bz2
+file archivobin
+```
+
+```bash
+mv archivobin archivobin.tar
+tar -xvf archivobin.tar
+file archivobin
+```
+
+[**EXTRAS**](./bandit_extra.md#nivel-12-a-nivel-13)
