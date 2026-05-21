@@ -137,3 +137,14 @@ El comando `base64` generalmente se utiliza para codificar pero con su opción `
 ```bash
 base64 -d data.txt
 ```
+
+## Nivel 11 a Nivel 12
+**Objetivo:** decodificar la contraseña de un archivo con root13
+
+El comando `tr` te permite reemplazar, filtrar y borrar caracteres con variedad de opciones. Si aplicamos root13 de forma manual podemos pasarle que letras corresponden. Siempre se usa con un pipe.
+
+```bash
+cat data.txt | tr "A-Z""a-z" "N-ZA-M""n-za-m"
+```
+
+Notese que hay que cambiar las mayusculas y las minusculas. Los números se dejan igual.
