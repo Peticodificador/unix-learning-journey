@@ -12,6 +12,7 @@ Hasta el momento, estoy documentando mi progreso en los siguientes juegos:
 
 * [**Terminus**](./terminus.md): repaso de la terminal y navegación básica.
 * [**OverTheWire: Bandit**](./bandit.md): comandos esenciales de Linux, manejo de archivos, permisos y pipes.
+* [**Command Challenge!**](./command_challenge.md): procesamiento y manipulación de texto, encadenamiento de comandos y expresiones regulares.
 * *(Continuará...)*
 
 ---

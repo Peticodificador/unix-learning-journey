@@ -2,6 +2,24 @@
 
 Este documento contiene mi camino resolviendo el wargame **Bandit** de OverTheWire. Las contraseñas han sido omitidas para evitar spoilers.
 
+- [[#Acceso Inicial (Nivel 0)|Acceso Inicial (Nivel 0)]]
+- [[#Nivel 0 a Nivel 1|Nivel 0 a Nivel 1]]
+- [[#Nivel 1 a Nivel 2|Nivel 1 a Nivel 2]]
+- [[#Nivel 2 a Nivel 3|Nivel 2 a Nivel 3]]
+- [[#Nivel 3 a Nivel 4|Nivel 3 a Nivel 4]]
+- [[#Nivel 4 a Nivel 5|Nivel 4 a Nivel 5]]
+- [[#Nivel 5 a Nivel 6|Nivel 5 a Nivel 6]]
+- [[#Nivel 6 a Nivel 7|Nivel 6 a Nivel 7]]
+- [[#Nivel 7 a Nivel 8|Nivel 7 a Nivel 8]]
+- [[#Nivel 8 a Nivel 9|Nivel 8 a Nivel 9]]
+- [[#Nivel 9 a Nivel 10|Nivel 9 a Nivel 10]]
+- [[#Nivel 10 a Nivel 11|Nivel 10 a Nivel 11]]
+- [[#Nivel 11 a Nivel 12|Nivel 11 a Nivel 12]]
+- [[#Nivel 12 a Nivel 13|Nivel 12 a Nivel 13]]
+- [[#Nivel 13 a Nivel 14|Nivel 13 a Nivel 14]]
+- [[#Nivel 14 a Nivel 15|Nivel 14 a Nivel 15]]
+
+
 ## Acceso Inicial (Nivel 0)
 Para iniciar el juego, es necesario conectarse al servidor mediante SSH especificando el puerto y el usuario.
 
@@ -224,3 +242,6 @@ Finalmente:
 
 [**EXTRAS**](./bandit_extra.md#nivel-13-a-nivel-14)
 
+## Nivel 14 a Nivel 15
+
+**Objetivo:**
