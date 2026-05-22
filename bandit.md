@@ -188,3 +188,39 @@ file archivobin
 ```
 
 [**EXTRAS**](./bandit_extra.md#nivel-12-a-nivel-13)
+
+
+## Nivel 13 a Nivel 14
+**Objetivo:** obtener privilegios de bandit14 mediante autenticación con clave privada SSH.
+
+La conexión ya tiene establecida la `public key` por lo que nos queda utilizar la `private key`, para eso usamos el comando `ssh -i` 
+
+```bash
+ssh -i sshkey.private bandit14@bandit.labs.overthewire.org
+```
+
+Sin embargo, esta deshabilitada la opción de LocalHost (entrar a vos mismo como servidor) por lo que la conexión debe realizarse desde el equipo del jugador. Además, la necesidad de la `private key` nos lleva a usar el comando `scp` (o copiar a mano pero esto es mas divertido).
+
+Es importante notar la `-P` mayúscula y el armado del comando consiste en el destino y el `.` que representa el directorio actual.
+
+```bash
+scp -P 2220 bandit13@bandit.labs.overthewire.org:sshkey.private .
+```
+
+En caso de querer realizar la conexión apareceria un error de permisos, `sshkey.private` tiene demasiados para ser una `private key`, por lo que hay que cambiarlos con `chmod`.
+
+En caso de usar *wsl* y estar en una carpeta de Windows es necesario que el archivo este en un directorio de Linux.
+
+```bash
+chmod 600 sshkey.private 
+```
+
+Finalmente:
+
+```bash
+ ssh -i ~/sshkey.private -p 2220 bandit14@bandit.labs.overthewire.org # si no estan en el caso que explique previamente no es necesario el ~
+ cat /etc/bandit_pass/bandit14
+```
+
+[**EXTRAS**](./bandit_extra.md#nivel-13-a-nivel-14)
+
