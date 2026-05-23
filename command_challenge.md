@@ -72,5 +72,19 @@ mv take-the-command-challenge tmp/files
 ## Create Symlink
 
 ```bash
+ln -s tmp/files/take-the-command-challenge take-the-command-challenge
+```
 
+## Delete Files
+
+El comando `rm -rf *` no funciona porque el `*` sirve actuar sobre todo lo visible, en cambio podemos usar `$(ls -A)` para listar todo lo que deseamos borrar.  
+
+```bash
+rm -rf $(ls -A) 
+```
+
+## Remove Files with Extension
+
+```bash
+rm -rf $(find . -name "*.doc")
 ```

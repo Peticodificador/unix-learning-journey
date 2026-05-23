@@ -243,5 +243,26 @@ Finalmente:
 [**EXTRAS**](./bandit_extra.md#nivel-13-a-nivel-14)
 
 ## Nivel 14 a Nivel 15
+**Objetivo:** conectarse al puerto 30000 con la contraseña actual para recibir la nueva.
 
-**Objetivo:**
+Mi primer intento fue utilizar el comando `ssh` pero el puerto estaba abierto con otro protocolo así que se puede realizar la comunicación únicamente con `telnet`. Recordando que al estar en el servidor de bandit para realizar una conexión con el puerto 30000 tenemos que conectarnos con nosotros mismos (localhost).
+
+```bash
+telnet 127.0.0.1 30000
+```
+
+Sin embargo, el comando `nc` suele ser más cómodo. 
+
+```bash
+nc 127.0.0.1 30000
+```
+
+En ambos casos hay que escribir la contraseña después de establecer la conexión, en el caso de telnet puede haber lag.
+
+Otra alternativa es mandar la contraseña junto con la conexión.
+
+```bash
+echo [contraseña] | nc localhost 30000
+```
+
+[**EXTRAS**](./bandit_extra.md#nivel-14-a-nivel-15)
