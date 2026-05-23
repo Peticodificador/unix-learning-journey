@@ -39,13 +39,13 @@ ls -1
 cat access.log
 ```
 
-### Last Lines
+## Last Lines
 
 ```bash
 tail -5 access.log
 ```
 
-### Create a File
+## Create a File
 
 ```bash
 touch take-the-command-challenge
@@ -87,4 +87,40 @@ rm -rf $(ls -A)
 
 ```bash
 rm -rf $(find . -name "*.doc")
+```
+
+## Find String
+
+```bash
+grep GET  access.log
+```
+
+## Search for String
+
+Un primer acercamiento podría ser:
+
+```bash
+grep 500 *
+```
+
+Pero esta solución tiene el problema que `grep` no imprime el nombre del archivo que contiene lo buscado sino que imprime cada línea de cada archivo que lo contenga, incumpliendo la consigna; para corregir ese comportamiento se agrega la opción `l`.
+
+```bash
+grep -l 500 *
+```
+
+## Search for Extension
+
+```bash
+find . -name "access.log*" 
+```
+
+## Search Recursive
+
+Para esta búsqueda resulta de utilidad el `-exec`, que le dice el `find` que comando correr para cada coincidencia que encuentre. 
+
+Al momento de ejecutarse las llaves `{}` se reemplazan por la ruta de cada archivo encontrado, el `\;` son el símbolo de escape y el cierre de comando respectivamente-
+
+```bash
+find . -name "access.log*" -exec grep 500 {} \;
 ```

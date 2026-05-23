@@ -266,3 +266,6 @@ echo [contraseña] | nc localhost 30000
 ```
 
 [**EXTRAS**](./bandit_extra.md#nivel-14-a-nivel-15)
+
+## Nivel 15 a Nivel 16
+**Objetivo:**
