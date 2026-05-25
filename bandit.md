@@ -265,13 +265,13 @@ Al correr ese comando se establece la conexión y te muestra toda la informació
 ## Nivel 16 a Nivel 17
 **Objetivo:** descubrir cual de los puertos del 31000 al 32000 esta abierto y de los abiertos cual usa SSL/TLS.
 
-Revisar de forma manual los mil puertos disponibles sería una odisea, por lo que se usa el comando `nmap` con sus opciones de especificar puerto y dentro de esos puertos activos que protocolo tienen para encontrar el SSL.
+Revisar de forma manual los mil puertos disponibles sería una odisea, por lo que se usa el comando `nmap` con sus opciones de especificar puerto y, dentro de esos puertos activos, que protocolo tienen para encontrar el SSL.
 
 ```bash
 nmap -p 31000-32000 -sV localhost
 ```
 
-Dentro de la lista vamos a tener puertos que el comando interpreta como `echo` porque devuelven lo mandado (como nos adelanto la consigna), para obtener la contraseña se utiliza el que resta.
+Dentro de la lista vamos a tener puertos que el comando interpreta como `echo` porque devuelven lo mandado (como nos adelantó la consigna), para obtener la contraseña se utiliza el que resta.
 
 ```bash
 echo [contraseña] | openssl s_client -crlf -ign_eof -connect localhost:[puerto] -servername localhost

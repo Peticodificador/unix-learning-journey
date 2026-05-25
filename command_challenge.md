@@ -113,3 +113,37 @@ Al momento de ejecutarse las llaves `{}` se reemplazan por la ruta de cada archi
 ```bash
 find . -name "access.log*" -exec grep 500 {} \;
 ```
+
+## Find IP Address
+
+Para resolver este desafío es necesario tener conocimiento de **CLF** (Common Log Format), es el que habitualmente se usa para los `.log`, en el la dirección IP es lo primero en aparecer en la línea.
+
+Se puede seguir el mismo patrón que en el ejercicio anterior agregándole una búsqueda RegEx para encontrar las IP, es importante agregar la opción `-o` para que muestre únicamente el match y no la línea entera.
+
+```bash
+find . -name "access.log*" -exec grep -Eo "^[0-9]{1,3}(\.[0-9]{1,3}){3}"  {} \;
+```
+
+## Count Lines
+
+No existe (o no conozco) un comando simple que te de la salida necesaria de un solo accionar, así que primero se lista el contenido del directorio (`-A` te permite listar todo menos `.` y `..`) y luego se cuenta la lista.
+
+No hace falta agregar `xargs` porque `wc` puede actuar sobre texto, no necesariamente sobre objetos. En caso de usarlo contaría las líneas de cada uno de los archivos listados.
+
+```bash
+ls -A | wc -l
+```
+
+## Simple Sort
+
+```bash
+sort access.log
+```
+
+## Count the Strings
+
+```bash
+grep -c "GET" access.log
+```
+
+
