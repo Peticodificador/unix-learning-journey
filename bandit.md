@@ -268,4 +268,15 @@ echo [contraseña] | nc localhost 30000
 [**EXTRAS**](./bandit_extra.md#nivel-14-a-nivel-15)
 
 ## Nivel 15 a Nivel 16
-**Objetivo:**
+**Objetivo:** conectarse al puerto 30001 con la contraseña actual usando SSL/TLS.
+
+Para resolverlo se puede usar el comando `openssl` abriendo una conexion con el puerto especificado recordando que como ya estamos dentro del servidor "salimos" por localhost (127.0.0.1).
+ 
+```bash
+ openssl s_client -crlf -connect localhost:30001 -servername localhost
+```
+
+Al correr ese comando se establece la conexión y te muestra toda la información del handshake. Luego, al estar la comunicación abierta solo se ingresa la contraseña. En caso de haber querido mandar la contraseña directamente se podría haber hecho de la misma forma que el anterior, pero para evitar el cierre de la conexión y esperar a recibir la contraseña hay que agregar la opción `-ign_eof`.
+
+[**EXTRAS**](./bandit_extra.md#nivel-15-a-nivel-16)
+

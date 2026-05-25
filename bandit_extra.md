@@ -27,3 +27,19 @@ El orden de los permisos es `PROPIETARIO | GRUPO | OTROS`
 ## Nivel 14 a Nivel 15
 ### Localhost
 Nombre que le damos a la dirección del loopback, puede ser toda la clase 127.0.0.0/8 pero por convención usamos 127.0.0.1/32, si mandas algo a esa dirección te vuelve
+
+## Nivel 15 a Nivel 16
+
+### SSL/TLS
+Ambos son protocolos en la capa de transporte (en realidad esta un poquito en todas las de arriba, es mas presentación o aplicación, pero es más fácil pensarlo así) pero uno es el sucesor del otro, a día de hoy SSL es obsoleto y cuando se lo nombre generalmente uno se refiere a TLS. 
+
+Generalmente se usa el puerto 443 para https (con TLS) y el 80 para http (sin TLS).
+
+La conexión se establece con un handshake en el que se comparte una *public key* fija y una provisional con la que se calcula la *session key* y se encripta todo.
+
+### OpenSSL
+Este comando no solo necesita opciones sino que también un subcomando que le diga que hacer.
+
+```bash
+openssl command [ command_opts ] [ command_args ]
+```
