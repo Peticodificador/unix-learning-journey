@@ -4,17 +4,6 @@ Este documento contiene mi camino resolviendo los desafíos de Command Challenge
 
 Por otro lado, los primeros niveles al ser un comando directo en su mayoría no contendrá explicación.
 
-- [[#Hello World|Hello World]]
-- [[#CWD|CWD]]
-- [[#List Files|List Files]]
-- [[#File Contents|File Contents]]
-	- [[#File Contents#Last Lines|Last Lines]]
-	- [[#File Contents#Create a File|Create a File]]
-- [[#Create a Directory|Create a Directory]]
-- [[#Copy File|Copy File]]
-- [[#Move File|Move File]]
-- [[#Create Symlink|Create Symlink]]
-
 ## Hello World
 
 ```bash

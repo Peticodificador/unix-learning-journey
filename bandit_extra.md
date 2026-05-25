@@ -43,3 +43,11 @@ Este comando no solo necesita opciones sino que también un subcomando que le di
 ```bash
 openssl command [ command_opts ] [ command_args ]
 ```
+
+## Nivel 16 a Nivel 17
+### nmap
+Es un comando que es de mucha utilidad para el escaneo de redes, tiene una notacion particular.
+
+```bash
+nmap [Tipo de sondeo] [Opciones] {especificación de objetivo}
+```

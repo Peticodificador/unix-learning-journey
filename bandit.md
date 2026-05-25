@@ -2,24 +2,6 @@
 
 Este documento contiene mi camino resolviendo el wargame **Bandit** de OverTheWire. Las contraseñas han sido omitidas para evitar spoilers.
 
-- [[#Acceso Inicial (Nivel 0)|Acceso Inicial (Nivel 0)]]
-- [[#Nivel 0 a Nivel 1|Nivel 0 a Nivel 1]]
-- [[#Nivel 1 a Nivel 2|Nivel 1 a Nivel 2]]
-- [[#Nivel 2 a Nivel 3|Nivel 2 a Nivel 3]]
-- [[#Nivel 3 a Nivel 4|Nivel 3 a Nivel 4]]
-- [[#Nivel 4 a Nivel 5|Nivel 4 a Nivel 5]]
-- [[#Nivel 5 a Nivel 6|Nivel 5 a Nivel 6]]
-- [[#Nivel 6 a Nivel 7|Nivel 6 a Nivel 7]]
-- [[#Nivel 7 a Nivel 8|Nivel 7 a Nivel 8]]
-- [[#Nivel 8 a Nivel 9|Nivel 8 a Nivel 9]]
-- [[#Nivel 9 a Nivel 10|Nivel 9 a Nivel 10]]
-- [[#Nivel 10 a Nivel 11|Nivel 10 a Nivel 11]]
-- [[#Nivel 11 a Nivel 12|Nivel 11 a Nivel 12]]
-- [[#Nivel 12 a Nivel 13|Nivel 12 a Nivel 13]]
-- [[#Nivel 13 a Nivel 14|Nivel 13 a Nivel 14]]
-- [[#Nivel 14 a Nivel 15|Nivel 14 a Nivel 15]]
-
-
 ## Acceso Inicial (Nivel 0)
 Para iniciar el juego, es necesario conectarse al servidor mediante SSH especificando el puerto y el usuario.
 
@@ -280,3 +262,21 @@ Al correr ese comando se establece la conexión y te muestra toda la informació
 
 [**EXTRAS**](./bandit_extra.md#nivel-15-a-nivel-16)
 
+## Nivel 16 a Nivel 17
+**Objetivo:** descubrir cual de los puertos del 31000 al 32000 esta abierto y de los abiertos cual usa SSL/TLS.
+
+Revisar de forma manual los mil puertos disponibles sería una odisea, por lo que se usa el comando `nmap` con sus opciones de especificar puerto y dentro de esos puertos activos que protocolo tienen para encontrar el SSL.
+
+```bash
+nmap -p 31000-32000 -sV localhost
+```
+
+Dentro de la lista vamos a tener puertos que el comando interpreta como `echo` porque devuelven lo mandado (como nos adelanto la consigna), para obtener la contraseña se utiliza el que resta.
+
+```bash
+echo [contraseña] | openssl s_client -crlf -ign_eof -connect localhost:[puerto] -servername localhost
+```
+
+Al ejecutar el comando recibimos una *private key* que nos permite entrar al próximo nivel.
+
+[**EXTRAS**](./bandit_extra.md#nivel-16-a-nivel-17)
