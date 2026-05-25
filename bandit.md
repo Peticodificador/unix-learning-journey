@@ -293,4 +293,13 @@ diff passwords.new passwords.old
 La salida estará compuesta por el numero de línea donde se produce el cambio, el contenido de un archivo y el contenido del otro, se diferencian con los símbolos `<>`.
 
 ## Nivel 18 a Nivel 19
-**Objetivo:** 
+**Objetivo:** obtener la contraseña contenida en `readme` con la imposibilidad de conectarse con SSH.
+
+Como el servidor esta configurado para evitar la conexión con el comando `ssh` una alternativa es descargar el archivo en nuestro dispositivo sin haber entrado al servidor, para eso podemos usar el comando `scp`.
+
+```bash
+scp -P 2220 bandit18@bandit.labs.overthewire.org:readme .
+```
+
+Luego de usar el comando se solicita la contraseña obtenida en el desafío anterior.
+
