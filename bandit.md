@@ -57,7 +57,7 @@ less ./-file07
 **Objetivo:** Identificar un archivo que cumpla los siguientes requisitos: no ejecutable, estar en ascii y pesar 1033 bytes.
 El comando `find` te permite buscar dentro de todos los archivos del sistema (o mas limitado en caso de ser necesario).
 
-Puedo filtrar por tamaño con `-size`, por tipo de archivo con -type f, primero pense en buscar los permisos con el codigo hexa pero luego encontre el `! -executable`
+Puedo filtrar por tamaño con `-size`, por tipo de archivo con `-type f`, primero pensé en buscar los permisos con el código hexa pero luego encontré el `! -executable`
 Con `file` puedo saber si es ASCII o solo datos. 
 
 Para usar ambos se me ocurrio usar un pipe pero habria un problema con lo que file toma como argumento, puedo usar el comando `xargs` para volcarlo como argumento o `$()` para correr con prioridad los comandos.
@@ -280,3 +280,17 @@ echo [contraseña] | openssl s_client -crlf -ign_eof -connect localhost:[puerto]
 Al ejecutar el comando recibimos una *private key* que nos permite entrar al próximo nivel.
 
 [**EXTRAS**](./bandit_extra.md#nivel-16-a-nivel-17)
+
+## Nivel 17 a Nivel 18
+**Objetivo:** comprar dos archivos y encontrar la única línea diferente entre ambos.
+
+Como el desafío anterior nos dio una *private key* en este es necesario crear el archivo, cambiarle los permisos y luego realizar la conexión como se hizo en puntos anteriores. Luego, una vez dentro del servidor se puede utilizar el comando `diff`, que compara que cambiar del primer archivo para tener el segundo.
+
+```bash
+diff passwords.new passwords.old
+```
+
+La salida estará compuesta por el numero de línea donde se produce el cambio, el contenido de un archivo y el contenido del otro, se diferencian con los símbolos `<>`.
+
+## Nivel 18 a Nivel 19
+**Objetivo:** 
