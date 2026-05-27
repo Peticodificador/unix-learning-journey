@@ -17,7 +17,7 @@ Conexión remota segura a un servidor.
 * **Usuario y contraseña:** lo que suena
 *  **Keys:** el cliente genera una llave publica y una privada, cuando te querés conectar el servidor chequea que la publica sean iguales y le manda un *desafío* que el cliente resuelve con la privada
 		**Private Key:** el permiso debe ser solo de lectura y escritura para el usuario
-### Notación Hexa permisos 
+### Notación octal permisos 
 * **r:** 4
 * **w:** 2
 * **x:** 1
@@ -51,3 +51,11 @@ Es un comando que es de mucha utilidad para el escaneo de redes, tiene una notac
 ```bash
 nmap [Tipo de sondeo] [Opciones] {especificación de objetivo}
 ```
+
+## Nivel 19 a Nivel 20
+
+### setuid & setgid
+*Set user identity* y *set group identity* respectivamente, te permiten correr archivos con los permisos del propietario.
+
+No son comandos, son tipos de permisos especiales que se le dan a un archivo con el comando `chmod`.
+

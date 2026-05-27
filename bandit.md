@@ -303,3 +303,33 @@ scp -P 2220 bandit18@bandit.labs.overthewire.org:readme .
 
 Luego de usar el comando se solicita la contraseña obtenida en el desafío anterior.
 
+Otra forma de resolverlo era ejecutando los comandos en forma remota.
+
+```bash
+ssh -p 2220 bandit18@bandit.labs.overthewire.org ls
+ssh -p 2220 bandit18@bandit.labs.overthewire.org cat readme
+```
+
+Entre comando y comando hay que ingresar la contraseña (esto no seria necesario con una *private key*).
+
+## Nivel 19 a Nivel 20
+**Objetivo:** ejecutar un archivo `setuid binary` en el directorio para obtener permisos de propietario y leer la contraseña en `/etc/bandit_pass`.
+
+Para empezar, busco el archivo que contiene los permisos especiales y luego, como indica la consigna, lo ejecuto para leer el instructivo, para ejecutarlo basta con escribir su ruta relativa.
+
+```bash
+ls -l # vemos como el archivo tiene una s (supongo que de especial)
+./[archivo_del_directorio]
+```
+
+Nos explica que basta con ejecutar el archivo y luego el comando, por lo que buscamos el archivo con la contraseña y luego con lo ejecutamos con los permisos especiales.
+
+```bash
+ls /etc/bandit_pass
+./[archivo_del_directorio] cat /etc/bandit_pass/bandit20
+```
+
+[**EXTRAS**](./bandit_extra.md#nivel-19-a-nivel-20)
+
+## Nivel 20 a Nivel 21
+**Objetivo:**
