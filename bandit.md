@@ -332,4 +332,6 @@ ls /etc/bandit_pass
 [**EXTRAS**](./bandit_extra.md#nivel-19-a-nivel-20)
 
 ## Nivel 20 a Nivel 21
-**Objetivo:**
+**Objetivo:** abrir un puerto y crear un comportamiento que por defecto devuelva la contraseña actual. Luego, conectarse con el archivo provisto.
+
+

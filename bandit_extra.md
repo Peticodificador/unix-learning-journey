@@ -59,3 +59,5 @@ nmap [Tipo de sondeo] [Opciones] {especificación de objetivo}
 
 No son comandos, son tipos de permisos especiales que se le dan a un archivo con el comando `chmod`.
 
+## Nivel 20 a Nivel 21
+Como no tengo idea para donde disparar voy a investigar todos los comandos que me recomienda
