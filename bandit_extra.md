@@ -60,4 +60,27 @@ nmap [Tipo de sondeo] [Opciones] {especificación de objetivo}
 No son comandos, son tipos de permisos especiales que se le dan a un archivo con el comando `chmod`.
 
 ## Nivel 20 a Nivel 21
-Como no tengo idea para donde disparar voy a investigar todos los comandos que me recomienda
+Como no tengo idea para donde disparar voy a investigar todos los comandos que me recomienda, incluso los que ya conozco y use, a ver si me destraba algo.
+
+### nc
+Herramienta que permite leer y escribir datos en conexiones de red.
+- **Modo Cliente:** el que use hasta ahora, paso IP y puerto para conectarme
+- **Modo Servidor:** con `-l` abrís un puerto y esperas.
+- **Otros que parecen útiles**: `-v`, `-u` y `-e`, información extra, UDP y ejecuta programa respectivamente
+### cat
+Lee y concatena archivos
+### ssh
+Protocolo para comunicación segura. `-p`, `-l` y `-i` puerto usuario y key respectivamente.
+### bash
+Interprete de comandos
+### tmux & screen
+Permiten crear múltiples ventanas o paneles 
+### Job Control
+Manejar procesos en primer y segundo plano
+- `&` al final de cada comando lo corre en segundo plano
+- `CTRL-Z` pausa/suspende un proceso. `-C` lo cancela
+- `bg` reanuda lo pausado en segundo plano
+- `jobs` lista todos los procesos
+- `fg` trae un segundo plano al primero
+- `kill %` liquida procesos
+- `ps aux` lista procesos

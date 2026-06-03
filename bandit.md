@@ -334,4 +334,31 @@ ls /etc/bandit_pass
 ## Nivel 20 a Nivel 21
 **Objetivo:** abrir un puerto y crear un comportamiento que por defecto devuelva la contraseña actual. Luego, conectarse con el archivo provisto.
 
+El problema se puede dividir en dos partes (leer información de *EXTRAS*): 
+- Comportamiento del servidor.
+- Conexión al servidor sin que este deje de funcionar.
+
+La primer parte se puede resolver utilizando el comando `nc` en modo servidor o *Listener* y la segunda con control de procesos o con varios paneles.
+
+El comando `nc` puede ponerse en modo servidor con la opción `-l` y, usando la opción de control de procesos, agregándole el `&` se mantiene corriendo en segundo plano permitiéndonos realizar la conexión.
+
+La sintaxis es similar a cuando se quiere mandar un mensaje a un servidor 
+
+```bash
+echo [contraseña anterior] | nc -l -p 2121 &
+```
+
+El puerto puede ser cualquiera no conocido (a mi me gusta el número 21).
+
+Luego, ya corriendo en segundo plano podemos realizar la conexión a través del archivo binario. Como dice la consigna, solo pasándole el puerto como argumento. 
+
+```bash
+ls
+./suconnect 2121
+```
+
+La otra alternativa consiste en dividir la terminal en dos paneles con `tmux`, luego de correr el comando apretas `CTRL-B` y `%` para dividirla en dos, en una planteas el servidor y en la otra te conectas con los comandos anteriores.
+
+[**EXTRAS**](./bandit_extra.md#nivel-20-a-nivel-21)
+
 
