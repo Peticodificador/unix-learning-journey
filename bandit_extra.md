@@ -84,3 +84,18 @@ Manejar procesos en primer y segundo plano
 - `fg` trae un segundo plano al primero
 - `kill %` liquida procesos
 - `ps aux` lista procesos
+
+## Nivel 21 a Nivel 22
+### cron
+Motor para tareas programadas que se corre en segundo plano. Se despierta, revisa su lista de tareas y se ejecuta.
+
+El comando que usas para manejarlo es `crontab`. Algunas opciones útiles:
+- `-e`: crea o edita tareas en un editor de texto para las instrucciones.
+- `-l`: lista todas las tareas programadas
+- `-r`: elimina archivo con tareas programadas
+
+La búsqueda recomendada `crontab(5)` se refiere a la pestaña cinco del `man` donde se explica la sintaxis a usar:
+
+```bash
+[Minuto] [Hora] [Día del mes] [Mes] [Día de la semana] [Comando]
+```

@@ -361,4 +361,27 @@ La otra alternativa consiste en dividir la terminal en dos paneles con `tmux`, l
 
 [**EXTRAS**](./bandit_extra.md#nivel-20-a-nivel-21)
 
+## Nivel 21 a Nivel 22
+**Objetivo:** interpretar un archivo *cron* y analizar el comando que ejecuta.
 
+Como primer paso nos movemos a la carpeta que nos indica la consigna y en ella vemos varios archivos *cron*. 
+
+Si leemos el que nos interesa podremos ver el mini script *bash* que ejecuta.
+
+```bash
+cd /etc/cron.d/
+cat cronjob_bandit22
+```
+
+En su contenido (no lo agrego para evitar spoilers mayores) vemos como ejecuta un `.sh` desde el usuario bandit22 a cada minuto y "desecha" todas las salidas para que no se impriman en la terminal.
+ 
+Luego, leemos el `.sh` para ver el script que se ejecuta y nos encontramos con:
+- el *shebang* (quien interpreta el script)
+- un cambio de permisos para permitirnos leer cierto archivo temporal
+- y un copiado (redirección) del contenido del archivo contraseña al temporal
+
+Finalmente, se lee el archivo temporal y obtenemos la contraseña .
+
+[**EXTRAS**](./bandit_extra.md#nivel-21-a-nivel-22)
+
+## Nivel 22 a Nivel 23
