@@ -385,3 +385,22 @@ Finalmente, se lee el archivo temporal y obtenemos la contraseña .
 [**EXTRAS**](./bandit_extra.md#nivel-21-a-nivel-22)
 
 ## Nivel 22 a Nivel 23
+**Objetivo:** interpretar un archivo *cron* y analizar el comando que ejecuta.
+
+Se puede proceder de forma similar que el desafío anterior:
+
+```bash
+ls /etc/cron.d
+cat /etc/cron.d/cronjob_bandit23
+```
+
+De esa forma podemos saber que archivo de comandos esta siendo ejecutado para así poder leerlo.
+
+El script crea un archivo temporal y lo nombra usando una herramienta de *hashing*, por lo que podemos replicar el comando para obtener el *hash* y luego leer el archivo.
+
+```bash
+echo [texto_que_vemos_en_script] | md5sum | cut -d ' ' -f 1 
+cat /tmp/[hash_calculado]
+```
+
+[**EXTRAS**](./bandit_extra.md#nivel-22-a-nivel-23)

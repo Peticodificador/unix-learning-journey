@@ -99,3 +99,20 @@ La búsqueda recomendada `crontab(5)` se refiere a la pestaña cinco del `man` d
 ```bash
 [Minuto] [Hora] [Día del mes] [Mes] [Día de la semana] [Comando]
 ```
+
+### Nivel 22 a Nivel 23
+No parece ser necesaria una gran investigación para este desafío, sin embargo para dejar bien cubierto el script mencionado sin sobrecargar la documentación voy a explicar algunas cosas acá.
+
+### Sintaxis bash
+La variable se define con un `=` y todo junto, las llamas con `$nombre_variable`.  
+
+Para definirlas el script usa `$()` que te devuelve el *stdout* del comando dentro de los paréntesis como texto.
+
+Con las comillas dobles el interprete te reemplaza las variables por su valor.
+### md5sum
+Convierte entrada de texto en una cadena alfanumérica de 32 hexas. La salida es la cadena, dos espacios y un guión,
+
+### cut
+Corta porciones de un texto:
+- `-d`: define cual va a ser el separador
+- `-f`: te permite elegir que columna queres
