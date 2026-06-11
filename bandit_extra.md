@@ -100,7 +100,7 @@ La búsqueda recomendada `crontab(5)` se refiere a la pestaña cinco del `man` d
 [Minuto] [Hora] [Día del mes] [Mes] [Día de la semana] [Comando]
 ```
 
-### Nivel 22 a Nivel 23
+## Nivel 22 a Nivel 23
 No parece ser necesaria una gran investigación para este desafío, sin embargo para dejar bien cubierto el script mencionado sin sobrecargar la documentación voy a explicar algunas cosas acá.
 
 ### Sintaxis bash
@@ -116,3 +116,53 @@ Convierte entrada de texto en una cadena alfanumérica de 32 hexas. La salida es
 Corta porciones de un texto:
 - `-d`: define cual va a ser el separador
 - `-f`: te permite elegir que columna queres
+
+## Nivel 23 a Nivel 24
+Este también va a requerir una buena lectura
+### Sintaxis bash
+El `||` es una especia de OR, pero secuencial, dice "si no podes ejecutar lo primero ejecuta lo segundo". 
+
+```bash
+cd /var/spool/"$myname"/foo || exit
+```
+
+En cuando al *for*, la sintaxis la dejo abajo y el de nuestro script recorre todos los elementos de la carpeta a la que nos movimos.
+
+```bash
+for variable in elemento1 elemento2 elemento3 do 
+# Código a ejecutar echo  
+done
+```
+
+Luego el *If* corrobora que no sea la carpeta misma o la padre, `&&` es un *y*. La sintaxis es la siguiente (admite elif y else):
+
+```bash
+if [ condición ]; then 
+# Código si la condición es verdadera 
+fi
+```
+### shopt
+Herramienta para configuraciones opcionales que controlan el comportamiento de tu terminal o scripts
+- `shopt -s [nombre-opcion]`: Activa
+- `shopt -u [nombre-opcion]`: Desactiva
+- `shopt`: Muestra todas las opciones y su estado
+- 
+```bash
+shopt -s nullglob
+```
+
+Configura el comportamiento cuando en una búsqueda no hay ningún archivo coincidente.
+
+Si el patrón no encuentra coincidencias se elimina de la línea, en caso de que no esta activado se pasa el texto literal.
+
+### stat
+Muestra los detalles ocultos de un archivo, la opción `---formar "%U"` solo imprime el usuario
+
+### timeout
+Ejecuta un proceso con limite de tiempo
+
+```bash
+timeout [TIEMPO] [COMANDO]
+```
+
+Se agrega la opción `-s 9` para mandar un *kill*.

